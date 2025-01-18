@@ -1,12 +1,15 @@
 package org.surfdynamic.dynamocrud.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.surfdynamic.dynamocrud.dto.UsuarioDto;
 import org.surfdynamic.dynamocrud.entity.Direccion;
 import org.surfdynamic.dynamocrud.entity.Usuario;
 import org.surfdynamic.dynamocrud.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.surfdynamic.dynamocrud.utils.UtilsDto;
 
+@Slf4j
 @Service
 public class UsuarioService {
 
@@ -23,7 +26,7 @@ public class UsuarioService {
 
     public Usuario save(UsuarioDto dto){
         Usuario usuario =
-                Usuario.builder().usuarioId(dto.getId()).nombre(dto.getNombre())
+                Usuario.builder().usuarioId(UtilsDto.getNumberId()).nombre(dto.getNombre())
                 .direccion
                         (Direccion.builder()
                                 .ciudad(dto.getDireccionDto().getCiudad()).calle(dto.getDireccionDto().getCalle()).cp(dto.getDireccionDto().getCp()).build()).build();
@@ -45,7 +48,7 @@ public class UsuarioService {
     }
 
     public boolean existsId(String usuarioId){
-        return usuarioRepository.existsById(usuarioId);
+        return usuarioRepository.existsByUsuarioId(usuarioId);
     }
 
     public boolean existsNombre(String nombre){

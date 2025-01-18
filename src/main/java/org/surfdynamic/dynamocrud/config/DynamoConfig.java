@@ -15,13 +15,13 @@ import org.springframework.context.annotation.Configuration;
 @EnableDynamoDBRepositories(basePackages = "org.surfdynamic.dynamocrud.repository")
 public class DynamoConfig {
 
-    @Value("${amazon.dynamodb.endpoint}")
+    @Value("${az.dy.endp}")
     private String endpoint;
-    @Value("${amazon.aws.region}")
+    @Value("${az.as.rg}")
     private String region;
-    @Value("${amazon.aws.accesskey}")
+    @Value("${az.as.accky}")
     private String accessKey;
-    @Value("${amazon.aws.secretkey}")
+    @Value("${az.as.scky}")
     private String secreKey;
 
     @Bean

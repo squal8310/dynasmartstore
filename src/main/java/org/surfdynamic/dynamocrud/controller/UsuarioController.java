@@ -28,8 +28,8 @@ public class UsuarioController {
 
     @PostMapping("/usuario")
     public ResponseEntity<Usuario> create(@RequestBody UsuarioDto usuarioDto){
-        if(usuarioService.existsId(usuarioDto.getId()))
-            return new ResponseEntity("el id ya existe", HttpStatus.BAD_REQUEST);
+       // if(usuarioService.existsId(usuarioDto.getId()))
+         //   return new ResponseEntity("el id ya existe", HttpStatus.BAD_REQUEST);
         if(usuarioService.existsNombre(usuarioDto.getNombre()))
             return new ResponseEntity("ese nombre ya existe", HttpStatus.BAD_REQUEST);
         return ResponseEntity.ok(usuarioService.save(usuarioDto));
