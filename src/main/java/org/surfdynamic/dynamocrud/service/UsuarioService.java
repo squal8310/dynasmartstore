@@ -29,7 +29,7 @@ public class UsuarioService {
                 Usuario.builder().usuarioId(UtilsDto.getNumberId()).nombre(dto.getNombre())
                 .direccion
                         (Direccion.builder()
-                                .ciudad(dto.getDireccionDto().getCiudad()).calle(dto.getDireccionDto().getCalle()).cp(dto.getDireccionDto().getCp()).build()).build();
+                                .ciudad(dto.getDireccion().getCiudad()).calle(dto.getDireccion().getCalle()).cp(dto.getDireccion().getCp()).build()).build();
 
         return usuarioRepository.save(usuario);
     }
@@ -39,7 +39,7 @@ public class UsuarioService {
         usuario.setUsuarioId(dto.getId());
         usuario.setNombre(dto.getNombre());
         usuario.setDireccion(Direccion.builder()
-                .ciudad(dto.getDireccionDto().getCiudad()).calle(dto.getDireccionDto().getCalle()).cp(dto.getDireccionDto().getCp()).build());
+                .ciudad(dto.getDireccion().getCiudad()).calle(dto.getDireccion().getCalle()).cp(dto.getDireccion().getCp()).build());
         return usuarioRepository.save(usuario);
     }
 

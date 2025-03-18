@@ -13,5 +13,5 @@ public class UsuarioDto {
 
     private String id;
     private String nombre;
-    private DireccionDto direccionDto;
+    private DireccionDto direccion;
 }
